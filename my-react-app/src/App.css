@@ -1,0 +1,105 @@
+/* App.css */
+.body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  background-color: #4CAF50; /* 緑色のヘッダー */
+  color: white;
+  padding: 10px 0;
+}
+
+.quiz-container {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quiz-header {
+  font-size: 24px;
+  color: #333;
+}
+
+.score {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.button {
+  background-color: #4CAF50; /* 緑色のボタン */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #388E3C; /* 濃い緑色 */
+}
+
+.country-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+}
+
+.blue-country {
+  color: white;
+  background-color: #2196F3; /* 青 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.red-country {
+  color: white;
+  background-color: #F44336; /* 赤 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.handicap-adjuster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.handicap-text {
+  margin: 0 20px;
+}
+
+.reset-button {
+  background-color: #d32f2f;
+}
+
+.reset-button:hover {
+  background-color: #9a0007;
+}
