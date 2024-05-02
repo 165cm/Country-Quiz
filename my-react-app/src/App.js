@@ -68,7 +68,8 @@ function App() {
   const [remainingCountries, setRemainingCountries] = React.useState([...countries]);
   const [blueCountry, setBlueCountry] = React.useState("[Ready!]");
   const [redCountry, setRedCountry] = React.useState("[Ready!]");
-  const [blueDelay, setBlueDelay] = React.useState(0);
+// eslint-disable-next-line no-unused-vars
+//  const [blueDelay, setBlueDelay] = React.useState(0);
   const [redDelay, setRedDelay] = React.useState(5);
   const [gameHistory, setGameHistory] = React.useState([]);
   const [score, setScore] = React.useState({ Red: 0, Blue: 0 });
