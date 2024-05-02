@@ -69,7 +69,7 @@ function App() {
   const [blueCountry, setBlueCountry] = React.useState("[Ready!]");
   const [redCountry, setRedCountry] = React.useState("[Ready!]");
 // eslint-disable-next-line no-unused-vars
-//  const [blueDelay, setBlueDelay] = React.useState(0);
+//  /* const [blueDelay, setBlueDelay] = React.useState(0); Removed as per user request */
   const [redDelay, setRedDelay] = React.useState(5);
   const [gameHistory, setGameHistory] = React.useState([]);
   const [score, setScore] = React.useState({ Red: 0, Blue: 0 });
@@ -131,7 +131,7 @@ function App() {
     setGameHistory((prev) => [...prev, `Q${prev.length + 1}. ${winner}-${country}`]);
     setBlueCountry("[Ready!]");
     setRedCountry("[Ready!]");
-    setTimeout(triggerQuiz, 2000); // Wait for 2 seconds before starting next quiz
+    setTimeout(triggerQuiz, 3000); // Wait for 3 seconds before starting next quiz, as per user request
   };
 
   const handleCorrectAnswer = (winner, country) => () => {
@@ -148,10 +148,10 @@ function App() {
           <div className="blue-country country-name">{blueCountry}</div>
           <div className="red-country country-name">{redCountry || "Waiting..."}</div>
         </div>
-        <button onClick={triggerQuiz} className="button">Next Quiz</button>
+        /* <button onClick={triggerQuiz} className="button">Next Quiz</button> Removed as per user request */
         <div className="flex-row">
-          <button onClick={handleCorrectAnswer("Blue", blueCountry)} className="button">Blue Correct</button>
-          <button onClick={handleCorrectAnswer("Red", redCountry)} className="button">Red Correct</button>
+          <button onClick={handleCorrectAnswer("Blue", blueCountry)} className="button-blue">B</button>
+          <button onClick={handleCorrectAnswer("Red", redCountry)} className="button-red">R</button>
         </div>
         <div className="history-entry">
           {gameHistory.map((entry, index) => (
@@ -160,11 +160,10 @@ function App() {
         </div>
         <div className="handicap-adjuster">
           <button onClick={handleAdjustRedDelay(-1)} className="button">-</button>
-          <div className="handicap-text">Handicap for Red: {redDelay} seconds</div>
+          <div className="handicap-text">Handicap for Red:<br />{redDelay}<br />seconds</div>
           <button onClick={handleAdjustRedDelay(1)} className="button">+</button>
         </div>
-        <button onClick={startGame} className="button">Start Game</button>
-        <button onClick={resetGame} className="reset-button">Reset</button>
+        <button onClick={startGame} className="restart-button">Restart</button>
       </div>
     </div>
   );  

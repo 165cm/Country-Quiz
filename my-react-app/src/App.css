@@ -103,3 +103,19 @@
 .reset-button:hover {
   background-color: #9a0007;
 }
+
+
+.button-blue {
+  background-color: blue;
+  color: white;
+}
+
+.button-red {
+  background-color: red;
+  color: white;
+}
+
+.restart-button {
+  background-color: orange;
+  color: white;
+}
