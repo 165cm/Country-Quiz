@@ -97,11 +97,18 @@ html, body {
   text-align: center; /* 中央揃え */
 }
 
-.handicap-text {
-  font-size: 1em; /* ハンデキャップの文字サイズを大きく */
-}
-
 .button-blue, .button-red {
   width: 25%; /* ボタンの横幅を25%に */
   margin: 20px auto; /* 上下にマージンを設け、自動で中央揃え */
+}
+
+.handicap-text {
+  text-align: center; /* テキストを中央揃えにする */
+  margin: 10px 0; /* 上下のマージンを設定 */
+}
+
+
+.handicap-button {
+  padding: 15px 30px; /* ボタンのパディングを大きくしてタップしやすくする */
+  font-size: 1.5em; /* ボタンのフォントサイズを大きくする */
 }

@@ -152,21 +152,33 @@ function App() {
           <span className="score-red">{score.Red}</span>
         </div>
 
-         {/* 国名を表示するためのFlexboxコンテナ*/}
-        <div className="country-container" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-            <div className="blue-country country-name" style={{ width: '45%', backgroundColor: 'lightblue' }}>{blueCountry}</div>
-            <div className="red-country country-name" style={{ width: '45%', backgroundColor: 'lightcoral' }}>{redCountry || "Waiting..."}</div>
-        </div>
+         {/* 国名と地域名を表示するためのFlexboxコンテナ */}
+          <div className="country-container" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+              <div className="blue-country country-name">
+                  {blueCountry}
+                  <br />
+                  <span className="country-area">({countries.find(country => country.name === blueCountry)?.area})</span>
+              </div>
+              <div className="red-country country-name">
+                  {redCountry || "Waiting..."}
+                  <br />
+                  <span className="country-area">({countries.find(country => country.name === redCountry)?.area})</span>
+              </div>
+          </div>
          {/* Correctボタンのセクション */}
         <div className="flex-row" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
           <button onClick={handleCorrectAnswer("Blue", blueCountry)} className="button-blue">Correct</button>
           <button onClick={handleCorrectAnswer("Red", redCountry)} className="button-red">Correct</button>
         </div>
         <div className="handicap-adjuster">
-          <button onClick={handleAdjustRedDelay(-1)} className="button" style={{ padding: "10px 20px" }}>-</button>
-          <div className="handicap-text" style={{ fontSize: "2em" }}>Handicap for Red:<br />{redDelay}<br />seconds</div>
-          <button onClick={handleAdjustRedDelay(1)} className="button" style={{ padding: "10px 20px" }}>+</button>
+            <button onClick={handleAdjustRedDelay(-1)} className="handicap-button">-</button>
+            <div className="handicap-text">
+                Handicap for Red:<br />
+                {redDelay} seconds
+            </div>
+            <button onClick={handleAdjustRedDelay(1)} className="handicap-button">+</button>
         </div>
+
         <div className="history-entry">
         {gameHistory.map((entry, index) => (
         <div key={index} className={`history-entry ${entry.includes("Blue") ? "bg-blue" : "bg-red"}`}>{entry.replace(/Blue-|Red-/, '')}</div>
