@@ -1,121 +1,107 @@
-/* App.css */
-.body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+
+* {
+  box-sizing: border-box;
+}
+html, body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
-
 .App {
   text-align: center;
   padding: 20px;
 }
-
 .header {
-  background-color: #4CAF50; /* 緑色のヘッダー */
-  color: white;
-  padding: 10px 0;
-}
-
-.quiz-container {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 600px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.quiz-header {
   font-size: 24px;
   color: #333;
 }
-
-.score {
-  margin: 20px 0;
-  font-size: 20px;
+.quiz-container {
+  margin-top: 20px;
 }
-
-.button {
-  background-color: #4CAF50; /* 緑色のボタン */
-  color: white;
-  border: none;
+.quiz-header {
+  font-size: 20px;
+  color: darkblue;
+  margin-bottom: 10px;
+}
+.country-name {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.blue-country {
+  background-color: lightblue;
+}
+.red-country {
+  background-color: lightcoral;
+}
+.button-blue, .button-red {
   padding: 10px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
   margin: 10px;
   border-radius: 5px;
+}
+.button-blue {
+  background-color: lightblue;
+}
+.button-red {
+  background-color: lightcoral;
+}
+.start-button, .restart-button {
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #388E3C; /* 濃い緑色 */
-}
-
-.country-name {
-  font-weight: bold;
-  font-size: 18px;
-  color: #555;
-}
-
-.blue-country {
-  color: white;
-  background-color: #2196F3; /* 青 */
-  padding: 10px;
+  margin-top: 10px;
   border-radius: 5px;
 }
-
-.red-country {
-  color: white;
-  background-color: #F44336; /* 赤 */
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.flex-row {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .handicap-adjuster {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin-top: 20px;
+}
+.handicap-text {
+  margin: 0 10px;
+}
+.history-entry {
+  margin-top: 10px;
+}
+.bg-blue {
+  background-color: lightblue;
+}
+.bg-red {
+  background-color: lightcoral;
+}
+.score {
+  color: blue; /* 青チームの得点 */
+  font-size: 2em; /* 通常サイズの2倍 */
+  font-weight: bold; /* 太文字 */
+}
+
+.score-red {
+  color: red; /* 赤チームの得点 */
+}
+
+.country-container {
+  display: flex;
+  justify-content: space-between; /* 国名間に均等なスペース */
+  margin: 10px 0;
+}
+
+.country-name {
+  width: 45%; /* 横幅を45%に設定 */
+  text-align: center; /* 中央揃え */
 }
 
 .handicap-text {
-  margin: 0 20px;
+  font-size: 1em; /* ハンデキャップの文字サイズを大きく */
 }
 
-.reset-button {
-  background-color: #d32f2f;
-}
-
-.reset-button:hover {
-  background-color: #9a0007;
-}
-
-
-.button-blue {
-  background-color: blue;
-  color: white;
-}
-
-.button-red {
-  background-color: red;
-  color: white;
-}
-
-.restart-button {
-  background-color: orange;
-  color: white;
+.button-blue, .button-red {
+  width: 25%; /* ボタンの横幅を25%に */
+  margin: 20px auto; /* 上下にマージンを設け、自動で中央揃え */
 }

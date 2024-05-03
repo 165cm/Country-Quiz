@@ -86,9 +86,9 @@ function App() {
     setBlueCountry("[Ready!]");
     setRedCountry("[Ready!]");
     setGameHistory([]);
-    setScore({ Red: 0, Blue: 0 });
+    setScore({ Red: 0, Blue: 0 });  // 得点を0にリセット
     setQuizCount(0);
-  };
+};
 
   const handleAdjustRedDelay = (increment) => () => {
     setRedDelay((prev) => Math.max(0, prev + increment));
@@ -141,29 +141,38 @@ function App() {
   return (
     <div className="App">
       <div className="header">Country Quiz Game</div>
+      
+      {/* クイズコンテナの中で国名を表示するセクション */}
       <div className="quiz-container">
-        <div className="quiz-header">Quiz Time!</div>
-        <div className="score">{`Blue: ${score.Blue} vs Red: ${score.Red}`}</div>
-        <div className="flex-row">
-          <div className="blue-country country-name">{blueCountry}</div>
-          <div className="red-country country-name">{redCountry || "Waiting..."}</div>
+        {quizCount === 0 ? <button onClick={startGame} className="start-button">Start</button> : <button onClick={resetGame} className="restart-button">Restart</button>}
+        {/* 得点表示 */}
+        <div className="score">
+          <span className="score-blue">{score.Blue}</span>
+          <span style={{ color: "black" }}> vs </span>
+          <span className="score-red">{score.Red}</span>
         </div>
-        /* <button onClick={triggerQuiz} className="button">Next Quiz</button> Removed as per user request */
-        <div className="flex-row">
-          <button onClick={handleCorrectAnswer("Blue", blueCountry)} className="button-blue">B</button>
-          <button onClick={handleCorrectAnswer("Red", redCountry)} className="button-red">R</button>
+
+         {/* 国名を表示するためのFlexboxコンテナ*/}
+        <div className="country-container" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+            <div className="blue-country country-name" style={{ width: '45%', backgroundColor: 'lightblue' }}>{blueCountry}</div>
+            <div className="red-country country-name" style={{ width: '45%', backgroundColor: 'lightcoral' }}>{redCountry || "Waiting..."}</div>
         </div>
-        <div className="history-entry">
-          {gameHistory.map((entry, index) => (
-            <div key={index} className={`history-entry ${entry.includes("Blue") ? "bg-blue" : "bg-red"}`}>{entry}</div>
-          ))}
+         {/* Correctボタンのセクション */}
+        <div className="flex-row" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+          <button onClick={handleCorrectAnswer("Blue", blueCountry)} className="button-blue">Correct</button>
+          <button onClick={handleCorrectAnswer("Red", redCountry)} className="button-red">Correct</button>
         </div>
         <div className="handicap-adjuster">
-          <button onClick={handleAdjustRedDelay(-1)} className="button">-</button>
-          <div className="handicap-text">Handicap for Red:<br />{redDelay}<br />seconds</div>
-          <button onClick={handleAdjustRedDelay(1)} className="button">+</button>
+          <button onClick={handleAdjustRedDelay(-1)} className="button" style={{ padding: "10px 20px" }}>-</button>
+          <div className="handicap-text" style={{ fontSize: "2em" }}>Handicap for Red:<br />{redDelay}<br />seconds</div>
+          <button onClick={handleAdjustRedDelay(1)} className="button" style={{ padding: "10px 20px" }}>+</button>
         </div>
-        <button onClick={startGame} className="restart-button">Restart</button>
+        <div className="history-entry">
+        {gameHistory.map((entry, index) => (
+        <div key={index} className={`history-entry ${entry.includes("Blue") ? "bg-blue" : "bg-red"}`}>{entry.replace(/Blue-|Red-/, '')}</div>
+        ))}
+
+        </div>
       </div>
     </div>
   );  
